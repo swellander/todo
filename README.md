@@ -4,7 +4,7 @@ A simple script to keep track of daily todos.
 ### Setup
 ```
 $ git clone https://github.com/swellander/todo.git && cd todo
-$ source install
+$ bash install.sh
 $ todo
 ```
 
