@@ -1,9 +1,25 @@
 ## Todo
 A simple script to keep track of daily todos.
 
-### How to use
+### Setup
 ```
 $ git clone https://github.com/swellander/todo.git && cd todo
 $ source install
 $ todo
+```
+
+### Usage
+To open a blank `todo` page
+```
+$ todo
+```
+
+To open a yesterday's `todo` page
+```
+$ todo yesterday
+```
+
+To transfer incomplete `todos` from yesterday to today
+```
+$ todo scrape
 ```
