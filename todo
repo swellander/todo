@@ -1,19 +1,32 @@
 #!/bin/bash
 
-# Check to see if todo directory exists
-if [ ! -d "$HOME/notes/todo" ]
-then 
-	echo "Error: directory ~/notes/todo does not exist."
-	exit
-fi
+function yesterday {
+  yesterday=$(date -v -1d '+%m-%d-%Y')
 
-today=$(date +'%m-%d-%Y')
+  if [ ! -f "$HOME/notes/todo/todo_$yesterday.md" ]
+  then
+    echo "No entry available."
+  else
+    vim $HOME/notes/todo/todo_$yesterday.md
+  fi
+}
 
-if [ ! -d "$HOME/notes/todo/todo_$today.md" ]
+function today {
+  # Check to see if todo directory exists
+  if [ ! -d "$HOME/notes/todo" ]
+  then
+    echo "Error: directory ~/notes/todo does not exist."
+  else
+    today=$(date +'%m-%d-%Y')
+    vim $HOME/notes/todo/todo_$today.md
+  fi
+}
+
+if [ $# -eq 0 ]
 then
-	touch $HOME/notes/todo/todo_$today.md
+  today
+else
+  eval ${1}
 fi
-
-vim $HOME/notes/todo/todo_$today.md
 
 exit
