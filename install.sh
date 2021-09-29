@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# create ~/bin directory if it doesn't exist
+mkdir -p ~/bin
 
 # make symbolic link between ./todo to ~/bin/todo
 sudo ln -s -v "$(pwd)/todo" ~/bin/todo
